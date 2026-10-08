@@ -1,0 +1,29 @@
+# One More Chunk (Forge 1.20.1)
+
+An independent one-chunk skyworld mod. `1.0.0-beta` is a release candidate, **not yet publicly uploaded** or included in the existing modpack. The internal mod ID remains `nightfallchunks` so the public-name change does not rename world data. Nightfall One Chunk 0.1.0 remains unchanged.
+
+## Playing the candidate
+
+1. Install the candidate JAR from `build/libs/` in a **new Forge 1.20.1** test instance. Do not install another `nightfallchunks` JAR alongside it.
+2. When creating a **new world**, **One Chunk** is preselected. You can still choose Normal before creating the world; existing worlds and Re-create World settings are untouched. Worlds made with `0.1.0-dev` lack the terrain-source dimension and are not migration targets. Existing `0.2.0-dev` worlds keep their already generated artificial starter; use a new test world to see the natural starter.
+3. Start on one full-height, naturally generated chunk at its original world coordinates. The starter chest has saplings, food, water, lava, and two Chunk Seeds; if no natural tree is inside that chunk, it also contains four oak logs.
+4. Face a cardinal direction and right-click with a Chunk Seed to reveal the adjacent chunk. Success appears briefly above the hotbar instead of adding a chat line. Press **J** (remappable in Controls) to open the read-only Chunk Journal: it shows the seven-by-seven area around you, your chunk, and the total number of revealed chunks. Press **R** inside it to refresh.
+5. More seeds can be crafted from one log, four cobblestone and one coal or charcoal. Picking up a starter seed unlocks this recipe in the recipe book. The two starter seeds let players expand before building a furnace; charcoal keeps the recipe renewable.
+
+The starter and later chunks all copy generated Overworld blocks, block-entity data, biomes and structure metadata from the same inaccessible terrain-source dimension at matching X/Y/Z coordinates. This keeps natural terrain seams aligned and preserves the full vertical terrain column while leaving locked chunks empty. The Nether and End retain their normal generators. No Chunk By Chunk code or assets are used.
+
+Unlike the original [Chunk By Chunk](https://github.com/immortius/chunkbychunk), which activates placed chunk-spawner blocks and has separate machine screens such as the World Scanner, One More Chunk uses a direct handheld seed, a short success cue, and its own read-only progress Journal. No original models or GUI assets are reused.
+
+Each unlocked chunk is recorded in the world's SavedData. The server checks adjacency and the world border before placing terrain, and consumes the seed only after a successful unlock. A hidden marker allows interrupted reveals to be retried without replacing player-placed solid blocks. Fluids that entered locked chunks from their neighbors are replaced by the correct source terrain. The unlock state is shared by all players in the world. Failed generation does not consume a seed. The Chunk Seed also appears in the Creative Mode tools tab for testing and has a small three-dimensional floating-island model with a sprout rather than an emerald block. The Journal requests a bounded snapshot from the server; no client-supplied chunk coordinates can trigger terrain generation.
+
+## Current scope and verification
+
+The copying does **not** duplicate live entities from the source dimension. A village can therefore have its buildings and loot without its original villagers. Structure metadata is copied for revealed chunks; structure-search behavior still needs in-game validation, especially for locked chunks. The starter is selected from safe natural terrain near world origin and its spawn position is saved with the unlock state. Ocean-heavy seeds now search farther using a biome prefilter instead of crashing after the first eight-chunk radius. Natural elevation changes can still occur, but there is no artificial Y offset or thin starter slab.
+
+`gradlew.bat test build` covers the unlock plan and resource definitions. Forge GameTests in the selected preset cover full-height natural starter terrain, aligned source-world seams, copied terrain and biomes, flowing-water replacement, copied and reloaded chest contents, retry preservation of player blocks, starter supplies, recipe/preset/recipe-book advancement registration, coal and charcoal ingredient acceptance, the Journal's server-derived snapshot before and after an unlock, adjacency, duplicate attempts and saved unlock state after restart. Noah reported that the installed candidate works in-game after the world-start crash fix; this is user acceptance of the tested play path, not evidence that dedicated servers, multiplayer, structure-search behavior or full survival progression were tested.
+
+## Planned modpack starter world (not built yet)
+
+After the in-game world-start test passes, create a clean, never-played template world with this preset. For a client modpack, include that save under `client-overrides/saves/` with its own `icon.png` and a short, readable colored `LevelName`. Exclude personal player data, inventory, statistics, advancements and crash/test leftovers; keep the world's actual generator settings and terrain-source dimension. Import the `.mrpack` into a fresh instance and confirm the world appears, opens once, and is still unplayed before any public release. Do not package the crashed user save or the GameTest world as the template.
+
+The gradual-unlocking concept is inspired by [Chunk By Chunk](https://github.com/immortius/chunkbychunk) by dividesBy0/immortius (MIT). No source file, artwork, or assets from that project were copied. A public release requires an appropriate [Modrinth AI-use disclosure](https://support.modrinth.com/en/articles/16551575-disclosure-and-usage-of-ai) and compliance with its public-project eligibility rules; the owner's creative contribution must be clarified before public upload.

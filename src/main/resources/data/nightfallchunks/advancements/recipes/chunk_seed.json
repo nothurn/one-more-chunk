@@ -1,0 +1,19 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chunk_seed": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["nightfallchunks:chunk_seed"] }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": { "recipe": "nightfallchunks:chunk_seed" }
+    }
+  },
+  "requirements": [["has_chunk_seed", "has_the_recipe"]],
+  "rewards": { "recipes": ["nightfallchunks:chunk_seed"] }
+}

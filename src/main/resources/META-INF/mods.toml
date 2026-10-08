@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="nightfallchunks"
+version="1.0.0-beta"
+displayName="One More Chunk"
+authors="Noah"
+description='''Independent chunk-unlock skyworld for Minecraft 1.20.1. One Chunk is preselected for fresh worlds and can be changed before creation.'''
+
+[[dependencies.nightfallchunks]]
+modId="forge"
+mandatory=true
+versionRange="[47.4.20,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.nightfallchunks]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.20.2)"
+ordering="NONE"
+side="BOTH"

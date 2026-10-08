@@ -1,0 +1,70 @@
+{
+  "gui_light": "side",
+  "textures": {
+    "grass": "minecraft:block/moss_block",
+    "earth": "minecraft:block/dirt",
+    "rock": "minecraft:block/stone",
+    "stem": "minecraft:block/stripped_oak_log",
+    "leaves": "minecraft:block/azalea_leaves",
+    "particle": "minecraft:block/moss_block"
+  },
+  "elements": [
+    {
+      "from": [5, 1, 5], "to": [11, 5, 11],
+      "faces": {
+        "north": { "texture": "#rock" }, "south": { "texture": "#rock" },
+        "east": { "texture": "#rock" }, "west": { "texture": "#rock" },
+        "up": { "texture": "#rock" }, "down": { "texture": "#rock" }
+      }
+    },
+    {
+      "from": [3, 5, 3], "to": [13, 11, 13],
+      "faces": {
+        "north": { "texture": "#earth" }, "south": { "texture": "#earth" },
+        "east": { "texture": "#earth" }, "west": { "texture": "#earth" },
+        "up": { "texture": "#earth" }, "down": { "texture": "#earth" }
+      }
+    },
+    {
+      "from": [2, 11, 2], "to": [14, 13, 14],
+      "faces": {
+        "north": { "texture": "#grass" }, "south": { "texture": "#grass" },
+        "east": { "texture": "#grass" }, "west": { "texture": "#grass" },
+        "up": { "texture": "#grass" }, "down": { "texture": "#earth" }
+      }
+    },
+    {
+      "from": [7, 13, 7], "to": [9, 15, 9],
+      "faces": {
+        "north": { "texture": "#stem" }, "south": { "texture": "#stem" },
+        "east": { "texture": "#stem" }, "west": { "texture": "#stem" },
+        "up": { "texture": "#stem" }, "down": { "texture": "#stem" }
+      }
+    },
+    {
+      "from": [5, 14, 6], "to": [8, 16, 10],
+      "faces": {
+        "north": { "texture": "#leaves" }, "south": { "texture": "#leaves" },
+        "east": { "texture": "#leaves" }, "west": { "texture": "#leaves" },
+        "up": { "texture": "#leaves" }, "down": { "texture": "#leaves" }
+      }
+    },
+    {
+      "from": [8, 14, 6], "to": [11, 16, 10],
+      "faces": {
+        "north": { "texture": "#leaves" }, "south": { "texture": "#leaves" },
+        "east": { "texture": "#leaves" }, "west": { "texture": "#leaves" },
+        "up": { "texture": "#leaves" }, "down": { "texture": "#leaves" }
+      }
+    }
+  ],
+  "display": {
+    "gui": { "rotation": [30, 225, 0], "translation": [0, 0, 0], "scale": [0.9, 0.9, 0.9] },
+    "ground": { "rotation": [0, 0, 0], "translation": [0, 2, 0], "scale": [0.45, 0.45, 0.45] },
+    "fixed": { "rotation": [0, 0, 0], "translation": [0, 0, 0], "scale": [0.75, 0.75, 0.75] },
+    "thirdperson_righthand": { "rotation": [75, 45, 0], "translation": [0, 2, 0], "scale": [0.6, 0.6, 0.6] },
+    "thirdperson_lefthand": { "rotation": [75, 45, 0], "translation": [0, 2, 0], "scale": [0.6, 0.6, 0.6] },
+    "firstperson_righthand": { "rotation": [0, 45, 0], "translation": [0, 0, 0], "scale": [0.6, 0.6, 0.6] },
+    "firstperson_lefthand": { "rotation": [0, 225, 0], "translation": [0, 0, 0], "scale": [0.6, 0.6, 0.6] }
+  }
+}

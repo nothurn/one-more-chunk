@@ -1,0 +1,9 @@
+# Editable Blockbench composition studies
+
+Open `one-more-chunk-reference.bbmodel` for the current study of Noah's `Canva.png` reference. From the initial Blockbench camera it presents a 16 × 16 × 16 terrain chunk with a tall tiered oak tree on the left, a half village house with a stepped roof on the right, a path and grass tufts above, coal and iron on the visible stone faces, and an irregular cave mouth with recessed lava below. The 1,700 editable cubes are organized into seven Outliner groups; 17 Minecraft 1.20.1 block textures are embedded, so the file opens without external texture paths. `canva-reference-final-validation.png` records a local Blockbench visual check.
+
+The earlier `one-more-chunk-blockout.bbmodel` remains available as a simpler first composition. `build_canva_study.py` regenerates the current reference study from an existing Minecraft 1.20.1 client JAR; `build_blockbench_blockout.py` regenerates the earlier blockout. Neither script changes the mod or its release JAR. The model matches the reference's arrangement and major Minecraft elements, but Blockbench's default camera, lighting and pixel textures do not reproduce the source image pixel-for-pixel.
+
+This is an **AI-assisted construction study, not a Modrinth-ready icon**. The file and any image rendered from it must not be uploaded to Modrinth as an icon, gallery image, or description image. Modrinth currently forbids project-page images created or derived from generative AI output: <https://modrinth.com/legal/rules>. For a public icon, create your own independent scene/artwork rather than editing or tracing this file. The owner's original composition idea—one chunk, one tree, half a house—can still guide a new manual design.
+
+`blockbench-validation.png` and the current validation screenshot are local checks, not publication artwork.
